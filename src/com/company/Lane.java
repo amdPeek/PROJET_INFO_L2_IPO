@@ -54,6 +54,8 @@ public class Lane {
 			return new Case(game.width - 1, ord);
 	}
 
+	//comm
+
 	private Case getBeforeFirstCase() {
 		if (leftToRight) {
 			return new Case(-1, ord);

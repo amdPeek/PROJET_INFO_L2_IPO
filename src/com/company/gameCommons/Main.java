@@ -1,14 +1,14 @@
-package gameCommons;
+package com.company.gameCommons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-import frog.Frog;
+import com.company.frog.Frog;
 import givenEnvironment.GivenEnvironment;
-import graphicalElements.FroggerGraphic;
-import graphicalElements.IFroggerGraphics;
+import com.company.graphicalElements.FroggerGraphic;
+import com.company.graphicalElements.IFroggerGraphics;
 
 public class Main {
 

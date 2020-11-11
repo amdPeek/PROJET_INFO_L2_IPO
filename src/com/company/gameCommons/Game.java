@@ -1,10 +1,10 @@
-package gameCommons;
+package com.company.gameCommons;
 
 import java.awt.Color;
 import java.util.Random;
 
-import graphicalElements.Element;
-import graphicalElements.IFroggerGraphics;
+import com.company.graphicalElements.Element;
+import com.company.graphicalElements.IFroggerGraphics;
 
 public class Game {
 

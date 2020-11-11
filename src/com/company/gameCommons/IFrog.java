@@ -1,7 +1,7 @@
-package gameCommons;
+package com.company.gameCommons;
 
-import util.Case;
-import util.Direction;
+import com.company.util.Case;
+import com.company.util.Direction;
 
 public interface IFrog {
 	

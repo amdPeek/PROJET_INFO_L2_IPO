@@ -1,8 +1,8 @@
-package graphicalElements;
+package com.company.graphicalElements;
 
 import java.awt.*;
 
-import util.Case;
+import com.company.util.Case;
 
 
 public class Element extends Case {

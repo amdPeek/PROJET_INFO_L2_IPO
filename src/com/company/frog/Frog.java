@@ -1,7 +1,7 @@
-package frog;
+package com.company.frog;
 
-import gameCommons.Game;
-import gameCommons.IFrog;
+import com.company.gameCommons.Game;
+import com.company.gameCommons.IFrog;
 
 public class Frog implements IFrog {
 	

@@ -1,6 +1,6 @@
-package graphicalElements;
+package com.company.graphicalElements;
 
-import gameCommons.IFrog;
+import com.company.gameCommons.IFrog;
 
 public interface IFroggerGraphics {
 	

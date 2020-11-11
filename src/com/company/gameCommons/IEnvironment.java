@@ -1,6 +1,6 @@
-package gameCommons;
+package com.company.gameCommons;
 
-import util.Case;
+import com.company.util.Case;
 
 public interface IEnvironment {
 

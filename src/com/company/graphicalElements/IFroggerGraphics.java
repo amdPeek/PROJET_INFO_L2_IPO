@@ -1,4 +1,4 @@
-package com.company;
+package graphicalElements;
 
 import gameCommons.IFrog;
 

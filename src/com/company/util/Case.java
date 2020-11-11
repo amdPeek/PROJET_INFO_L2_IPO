@@ -1,4 +1,4 @@
-package com.company;
+package util;
 
 public class Case {
 	public final int absc;

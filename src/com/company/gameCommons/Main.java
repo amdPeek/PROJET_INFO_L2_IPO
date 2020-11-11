@@ -18,6 +18,7 @@ public class Main {
 		int width = 26;
 		int height = 20;
 		int tempo = 100;
+
 		int minSpeedInTimerLoops = 3;
 		double defaultDensity = 0.2;
 		

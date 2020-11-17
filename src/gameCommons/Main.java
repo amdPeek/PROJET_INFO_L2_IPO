@@ -14,6 +14,8 @@ import util.Direction;
 
 public class Main {
 
+
+
 	public static void main(String[] args) {
 
 		//Caractéristiques du jeu

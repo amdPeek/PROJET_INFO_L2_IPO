@@ -98,7 +98,7 @@ public class Game {
 	public void update() {
 		graphic.clear();
 		environment.update();
-		//this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
+		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
 		testLose();
 		testWin();
 	}

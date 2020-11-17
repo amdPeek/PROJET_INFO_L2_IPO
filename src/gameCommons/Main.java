@@ -9,6 +9,8 @@ import frog.Frog;
 import givenEnvironment.GivenEnvironment;
 import graphicalElements.FroggerGraphic;
 import graphicalElements.IFroggerGraphics;
+import util.Case;
+import util.Direction;
 
 public class Main {
 
@@ -25,14 +27,26 @@ public class Main {
 		IFroggerGraphics graphic = new FroggerGraphic(width, height);
 		//Création de la partie
 		Game game = new Game(graphic, width, height, minSpeedInTimerLoops, defaultDensity);
-		//Création et liason de la grenouille
-		IFrog frog = new Frog(game);
-		game.setFrog(frog);
-		graphic.setFrog(frog);
+		//Création et liaison de la grenouille
+		if(width % 2 == 0)
+		{
+			IFrog frog = new Frog(game, Direction.up, new Case(width/2,0));
+			game.setFrog(frog);
+			graphic.setFrog(frog);
+		}
+		else
+		{
+			IFrog frog = new Frog(game, Direction.up, new Case(Math.floorDiv(width,2),0));
+			game.setFrog(frog);
+			graphic.setFrog(frog);
+		}
+
+
 		//Création et liaison de l'environnement
 		IEnvironment env = new GivenEnvironment(game);
 		game.setEnvironment(env);
-				
+
+
 		//Boucle principale : l'environnement s'acturalise tous les tempo milisecondes
 		Timer timer = new Timer(tempo, new ActionListener() {
 			@Override

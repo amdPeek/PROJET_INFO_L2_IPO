@@ -5,6 +5,7 @@ import java.util.Random;
 
 import graphicalElements.Element;
 import graphicalElements.IFroggerGraphics;
+import util.Case;
 
 public class Game {
 
@@ -43,6 +44,14 @@ public class Game {
 		this.defaultDensity = defaultDensity;
 	}
 
+	public int getWidth() {
+		return this.width;
+	}
+
+	public int getHeight() {
+		return this.height;
+	}
+
 	/**
 	 * Lie l'objet frog à la partie
 	 * 
@@ -77,6 +86,7 @@ public class Game {
 	 */
 	public boolean testLose() {
 		// TODO
+
 		return false;
 	}
 
@@ -88,6 +98,8 @@ public class Game {
 	 */
 	public boolean testWin() {
 		// TODO
+
+
 		return false;
 	}
 

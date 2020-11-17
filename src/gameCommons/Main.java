@@ -16,6 +16,7 @@ public class Main {
 
 
 
+
 	public static void main(String[] args) {
 
 		//Caractéristiques du jeu
@@ -24,6 +25,7 @@ public class Main {
 		int tempo = 100;
 		int minSpeedInTimerLoops = 3;
 		double defaultDensity = 0.2;
+
 		
 		//Création de l'interface graphique
 		IFroggerGraphics graphic = new FroggerGraphic(width, height);

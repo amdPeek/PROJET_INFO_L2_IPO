@@ -61,6 +61,11 @@ public class Main {
 				{
 					graphic.endGameScreen("BIEN JOUE");
 				}
+
+				if(game.testLose())
+				{
+					graphic.endGameScreen("PERDU");
+				}
 			}
 		});
 		timer.setInitialDelay(0);

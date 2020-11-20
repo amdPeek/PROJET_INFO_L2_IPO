@@ -57,6 +57,10 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				game.update();
 				graphic.repaint();
+				if(game.testWin())
+				{
+					graphic.endGameScreen("BIEN JOUE");
+				}
 			}
 		});
 		timer.setInitialDelay(0);

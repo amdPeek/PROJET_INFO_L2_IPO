@@ -86,8 +86,14 @@ public class Game {
 	 */
 	public boolean testLose() {
 		// TODO
-
-		return false;
+		if(!environment.isSafe(this.frog.getPosition()))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
@@ -98,9 +104,15 @@ public class Game {
 	 */
 	public boolean testWin() {
 		// TODO
+		if(frog.getPosition().ord == (this.height - 1))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 
-
-		return false;
 	}
 
 	/**

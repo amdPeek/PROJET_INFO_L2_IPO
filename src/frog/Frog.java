@@ -29,28 +29,28 @@ public class Frog implements IFrog {
 
 	@Override
 	public Direction getDirection() {
-		return null;
+		return this.frogDirection;
 	}
 
 	@Override
 	public void move(Direction key) {
 
-		if(key == Direction.down)
+		if((key == Direction.down) && (this.frogCase.ord - 1 >= 0))
 		{
 			this.frogCase = new Case(this.frogCase.absc ,this.frogCase.ord - 1);
 			System.out.println("x = " + this.frogCase.absc + " y = " + this.frogCase.ord);
 		}
-		else if(key == Direction.up)
+		else if((key == Direction.up) && (this.frogCase.ord + 1 < this.game.height))
 		{
 			this.frogCase = new Case(this.frogCase.absc ,this.frogCase.ord + 1);
 			System.out.println("x = " + this.frogCase.absc + " y = " + this.frogCase.ord);
 		}
-		else if(key == Direction.left)
+		else if((key == Direction.left) && (this.frogCase.absc - 1 >= 0))
 		{
 			this.frogCase = new Case(this.frogCase.absc - 1,this.frogCase.ord);
 			System.out.println("x = " + this.frogCase.absc + " y = " + this.frogCase.ord);
 		}
-		else if(key == Direction.right)
+		else if((key == Direction.right) && (this.frogCase.absc + 1 < this.game.width))
 		{
 			this.frogCase = new Case(this.frogCase.absc + 1 ,this.frogCase.ord);
 			System.out.println("x = " + this.frogCase.absc + " y = " + this.frogCase.ord);

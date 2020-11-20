@@ -104,7 +104,7 @@ public class Game {
 	 */
 	public boolean testWin() {
 		// TODO
-		if(frog.getPosition().ord == (this.height - 1))
+		if(environment.isWinningPosition(this.frog.getPosition()))
 		{
 			return true;
 		}

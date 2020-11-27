@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 
+import environment.Environment;
 import frog.Frog;
 import givenEnvironment.GivenEnvironment;
 import graphicalElements.FroggerGraphic;
@@ -48,10 +49,10 @@ public class Main {
 
 
 		//Création et liaison de l'environnement
-		IEnvironment env = new GivenEnvironment(game);
+		//IEnvironment env = new GivenEnvironment(game);
 
 		//Cr´eation et liaison de l’environnement
-		//IEnvironment env = new Environment(game);
+		IEnvironment env = new Environment(game);
 		game.setEnvironment(env);
 
 

@@ -38,7 +38,8 @@ public class Frog implements IFrog {
 		if((key == Direction.down) && (this.frogCase.ord - 1 >= 0))
 		{
 			this.frogCase = new Case(this.frogCase.absc ,this.frogCase.ord - 1);
-			System.out.println("x = " + this.frogCase.absc + " y = " + this.frogCase.ord);
+			System.out.println("x = " + this.frogCase.absc + " y = " + this.frogCase.ord );
+
 		}
 		else if((key == Direction.up) && (this.frogCase.ord + 1 < this.game.height))
 		{

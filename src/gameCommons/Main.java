@@ -11,6 +11,8 @@ import frog.Frog;
 import givenEnvironment.GivenEnvironment;
 import graphicalElements.FroggerGraphic;
 import graphicalElements.IFroggerGraphics;
+import infFrogger.EnvInf;
+import infFrogger.FrogInf;
 import util.Case;
 import util.Direction;
 
@@ -22,7 +24,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		//Caractéristiques du jeu
-		int width = 26;
+		int width = 50;
 		int height = 20;
 		int tempo = 100;
 		int minSpeedInTimerLoops = 3;
@@ -36,13 +38,15 @@ public class Main {
 		//Création et liaison de la grenouille
 		if(width % 2 == 0)
 		{
-			IFrog frog = new Frog(game, Direction.up, new Case(width/2,0));
+			//IFrog frog = new Frog(game, Direction.up, new Case(width/2,0));
+			IFrog frog = new FrogInf(game,new Case(width/2,1));
 			game.setFrog(frog);
 			graphic.setFrog(frog);
 		}
 		else
 		{
-			IFrog frog = new Frog(game, Direction.up, new Case(Math.floorDiv(width,2),0));
+			//IFrog frog = new Frog(game, Direction.up, new Case(Math.floorDiv(width,2),0));
+			IFrog frog = new FrogInf(game,new Case(Math.floorDiv(width,2),1));
 			game.setFrog(frog);
 			graphic.setFrog(frog);
 		}
@@ -52,7 +56,8 @@ public class Main {
 		//IEnvironment env = new GivenEnvironment(game);
 
 		//Cr´eation et liaison de l’environnement
-		IEnvironment env = new Environment(game);
+		//IEnvironment env = new Environment(game);
+		IEnvironment env = new EnvInf(game);
 		game.setEnvironment(env);
 
 
@@ -62,15 +67,15 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				game.update();
 				graphic.repaint();
-				if(game.testWin())
+				/*if(game.testWin())
 				{
 					graphic.endGameScreen("BIEN JOUE");
-				}
+				}*/
 
-				if(game.testLose())
+				/*if(game.testLose())
 				{
 					graphic.endGameScreen("PERDU");
-				}
+				}*/
 			}
 		});
 		timer.setInitialDelay(0);

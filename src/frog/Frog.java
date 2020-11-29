@@ -58,4 +58,14 @@ public class Frog implements IFrog {
 		}
 
 	}
+
+	@Override
+	public int getScore() {
+		return 0;
+	}
+
+	@Override
+	public int getOrd() {
+		return 0;
+	}
 }

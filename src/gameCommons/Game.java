@@ -5,6 +5,7 @@ import java.util.Random;
 
 import graphicalElements.Element;
 import graphicalElements.IFroggerGraphics;
+import infFrogger.EnvInf;
 import util.Case;
 
 public class Game {
@@ -123,8 +124,20 @@ public class Game {
 		graphic.clear();
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
-		testLose();
-		testWin();
+
+		if(testLose())
+			if(environment.getClass() == EnvInf.class)
+				graphic.endGameScreen("PERDU \n Ton score: " + frog.getScore());
+			else
+				graphic.endGameScreen("PERDU !");
+			if(testWin()) graphic.endGameScreen("GAGNE");
+
+
+	}
+
+	public int sentFrogOrd()
+	{
+		return frog.getOrd();
 	}
 
 }

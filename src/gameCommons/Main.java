@@ -38,15 +38,15 @@ public class Main {
 		//Création et liaison de la grenouille
 		if(width % 2 == 0)
 		{
-			//IFrog frog = new Frog(game, Direction.up, new Case(width/2,0));
-			IFrog frog = new FrogInf(game,new Case(width/2,1));
+			IFrog frog = new Frog(game, Direction.up, new Case(width/2,0));
+			//IFrog frog = new FrogInf(game,new Case(width/2,1));
 			game.setFrog(frog);
 			graphic.setFrog(frog);
 		}
 		else
 		{
-			//IFrog frog = new Frog(game, Direction.up, new Case(Math.floorDiv(width,2),0));
-			IFrog frog = new FrogInf(game,new Case(Math.floorDiv(width,2),1));
+			IFrog frog = new Frog(game, Direction.up, new Case(Math.floorDiv(width,2),0));
+			//IFrog frog = new FrogInf(game,new Case(Math.floorDiv(width,2),1));
 			game.setFrog(frog);
 			graphic.setFrog(frog);
 		}
@@ -56,8 +56,8 @@ public class Main {
 		//IEnvironment env = new GivenEnvironment(game);
 
 		//Cr´eation et liaison de l’environnement
-		//IEnvironment env = new Environment(game);
-		IEnvironment env = new EnvInf(game);
+		IEnvironment env = new Environment(game);
+		//IEnvironment env = new EnvInf(game);
 		game.setEnvironment(env);
 
 

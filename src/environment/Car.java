@@ -14,6 +14,7 @@ public class Car {
 	private final Color colorLtR = Color.BLACK;
 	private final Color colorRtL = Color.RED;
 
+
 	//TODO Constructeur(s)
 
 	public Car(Game myGame, Case position, boolean leftToRight)

@@ -3,6 +3,7 @@ package gameCommons;
 import java.awt.Color;
 import java.util.Random;
 
+import frog.Frog;
 import graphicalElements.Element;
 import graphicalElements.IFroggerGraphics;
 import infFrogger.EnvInf;
@@ -22,6 +23,10 @@ public class Game {
 	private IEnvironment environment;
 	private IFrog frog;
 	private IFroggerGraphics graphic;
+
+	public IEnvironment getEnvironment() {
+		return this.environment;
+	}
 
 	/**
 	 * 
@@ -43,6 +48,10 @@ public class Game {
 		this.height = height;
 		this.minSpeedInTimerLoops = minSpeedInTimerLoop;
 		this.defaultDensity = defaultDensity;
+	}
+
+	public IFrog getFrog() {
+		return frog;
 	}
 
 	public int getWidth() {
@@ -87,7 +96,7 @@ public class Game {
 	 */
 	public boolean testLose() {
 		// TODO
-		if(!environment.isSafe(this.frog.getPosition()))
+		if(!environment.isSafe(this.frog.getPosition()) || (this.getFrog().getPosition().absc >= this.width) || (this.getFrog().getPosition().absc < 0))
 		{
 			return true;
 		}
@@ -116,11 +125,18 @@ public class Game {
 
 	}
 
+	public String currentTypeRoad(Case c)
+	{
+		return this.getEnvironment().currentTypeRoad(c);
+	}
+
 	/**
 	 * Actualise l'environnement, affiche la grenouille et verifie la fin de
 	 * partie.
 	 */
 	public void update() {
+
+
 		graphic.clear();
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));

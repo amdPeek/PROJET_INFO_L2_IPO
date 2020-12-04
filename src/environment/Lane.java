@@ -17,6 +17,7 @@ public class Lane {
 	private double density;
 	private int tempo;
 	private boolean laneWaterType = false;
+	private String type = "route";
 
 	// TODO : Constructeur(s)
 	public Lane(Game myGame, int myOrd, double myDensity)
@@ -59,6 +60,14 @@ public class Lane {
 		update();
 	}
 
+	public int getOrd() {
+		return this.ord;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
 
 	public void update() {
 
@@ -72,9 +81,6 @@ public class Lane {
 				this.mayAddCar();
 				this.tempo = 0;
 			}
-
-
-
 
 	}
 

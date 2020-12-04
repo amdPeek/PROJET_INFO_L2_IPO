@@ -23,6 +23,8 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 		this.height = height;
 		elementsToDisplay = new ArrayList<Element>();
 
+
+
 		setBackground(Color.GRAY);
 		setPreferredSize(new Dimension(width * pixelByCase, height * pixelByCase));
 
@@ -34,6 +36,8 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 		frame.setVisible(true);
 		frame.addKeyListener(this);
 	}
+
+
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

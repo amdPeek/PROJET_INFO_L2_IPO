@@ -22,6 +22,11 @@ public interface IEnvironment {
 	 */
 	public boolean isWinningPosition(Case c);
 
+	public String currentTypeRoad(Case c);
+
+
+
+
 	/**
 	 * Effectue une étape d'actualisation de l'environnement
 	 */

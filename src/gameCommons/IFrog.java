@@ -16,12 +16,24 @@ public interface IFrog {
 	 * @return
 	 */
 	public Direction getDirection();
-	
+
+	public IFrog getFrog();
+
+	public void setOnWood(boolean onWood);
+
 	/**
 	 * Déplace la grenouille dans la direction donnée et teste la fin de partie
 	 * @param key
 	 */
 	public void move(Direction key);
+
+	public boolean isLftToRiIfOnWood();
+
+	public boolean isOnWood();
+
+	public void update();
+
+	public void setToFollow(Case toFollow);
 
 	public int getScore();
 

@@ -1,5 +1,6 @@
 package gameCommons;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +17,8 @@ import infFrogger.FrogInf;
 import util.Case;
 import util.Direction;
 
-public class Main {
+public class Main extends Frame {
+
 
 
 
@@ -29,6 +31,9 @@ public class Main {
 		int tempo = 100;
 		int minSpeedInTimerLoops = 3;
 		double defaultDensity = 0.2;
+
+
+
 
 		
 		//Création de l'interface graphique

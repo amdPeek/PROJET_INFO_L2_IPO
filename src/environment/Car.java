@@ -80,7 +80,7 @@ public class Car {
 	public boolean isOnCaseOrnot(Case c)
 	{
 
-			return c.absc >= this.leftPosition.absc && c.absc < this.leftPosition.absc + this.length;
+			return c.absc >= this.leftPosition.absc && c.absc < this.leftPosition.absc + this.length && c.ord == this.leftPosition.ord;
 
 	}
 

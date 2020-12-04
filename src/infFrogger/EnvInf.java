@@ -67,6 +67,12 @@ public class EnvInf implements IEnvironment {
     }
 
     @Override
+    public String currentTypeRoad(Case c) {
+        return null;
+    }
+
+
+    @Override
     public void update() {
 
         int baseOrd = game.sentFrogOrd() - 1;

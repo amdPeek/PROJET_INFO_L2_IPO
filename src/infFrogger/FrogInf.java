@@ -14,6 +14,9 @@ public class FrogInf implements IFrog{
     private int frogScore = 0;
     //ici on introduit l'ordonnée de la grenouille à part pour modifier le score plus facilement
     private int ordFrog;
+    private Case toFollow;
+    private boolean isOnWood = false;
+    private boolean lftToRiIfOnWood;
 
 
     public FrogInf (Game myGame, Case initCase)
@@ -24,9 +27,27 @@ public class FrogInf implements IFrog{
 
     }
 
+    public IFrog getFrog()
+    {
+        return new FrogInf(this.game,new Case(0,0));
+    }
+
     @Override
     public int getOrd() {
         return ordFrog;
+    }
+
+    public void setToFollow(Case toFollow) {
+        this.toFollow = toFollow;
+    }
+
+    public boolean isLftToRiIfOnWood() {
+        return lftToRiIfOnWood;
+    }
+
+    @Override
+    public boolean isOnWood() {
+        return this.isOnWood;
     }
 
     @Override
@@ -37,6 +58,10 @@ public class FrogInf implements IFrog{
     @Override
     public Case getPosition() {
         return this.frogCase;
+    }
+
+    public void setOnWood(boolean onWood) {
+        isOnWood = onWood;
     }
 
     @Override
@@ -73,5 +98,10 @@ public class FrogInf implements IFrog{
         }
 
         System.out.println("x = " + this.frogCase.absc + " y = " + this.frogScore );
+    }
+
+    @Override
+    public void update() {
+        return;
     }
 }

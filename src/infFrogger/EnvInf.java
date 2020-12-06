@@ -3,6 +3,7 @@ package infFrogger;
 import environment.Lane;
 import gameCommons.Game;
 import gameCommons.IEnvironment;
+import gameCommons.LauchGame;
 import util.Case;
 
 import java.util.ArrayList;
@@ -11,8 +12,9 @@ public class EnvInf implements IEnvironment {
     private Game game;
     private ArrayList<Lane> roadsToBeShown = new ArrayList<>();
     private ArrayList<Lane> myRoads = new ArrayList<>();
+    public LauchGame lauchG;
 
-    public EnvInf(Game myGame)
+    public EnvInf(Game myGame, LauchGame lG)
     {
         this.game = myGame;
 
@@ -29,6 +31,10 @@ public class EnvInf implements IEnvironment {
 
 
         this.roadsToBeShown = this.myRoads;
+    }
+
+    public LauchGame getLauchG() {
+        return lauchG;
     }
 
     @Override

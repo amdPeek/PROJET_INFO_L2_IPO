@@ -60,8 +60,14 @@ public class WaterRoads {
             this.mayAddWood();
             this.tempo = 0;
             //Faut checker si la frog est sur cette même waterRoads. Sinon on effectue +1 autant de fois qu'il y a de WR
-            if(this.game.getFrog().getPosition().ord == this.ord)
-                this.game.getFrog().update();
+
+            if(this.game.getEnvironment().getLauchG().part4)
+            {
+                if(this.game.getFrog().getPosition().ord == this.ord)
+                    this.game.getFrog().update();
+            }
+
+
         }
 
 

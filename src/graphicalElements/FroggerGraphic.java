@@ -17,16 +17,17 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 	private int height;
 	private IFrog frog;
 	private JFrame frame;
+	private boolean selectMode = true;
+
 
 	public FroggerGraphic(int width, int height) {
 		this.width = width;
 		this.height = height;
 		elementsToDisplay = new ArrayList<Element>();
 
-
-
 		setBackground(Color.GRAY);
 		setPreferredSize(new Dimension(width * pixelByCase, height * pixelByCase));
+
 
 		JFrame frame = new JFrame("Frogger");
 		this.frame = frame;

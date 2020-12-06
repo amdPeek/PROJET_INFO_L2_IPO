@@ -2,6 +2,7 @@ package environment;
 
 import java.util.ArrayList;
 
+import gameCommons.LauchGame;
 import util.Case;
 import gameCommons.Game;
 import gameCommons.IEnvironment;
@@ -14,16 +15,22 @@ public class Environment implements IEnvironment {
     private ArrayList<WaterRoads> myWaterRoads;
     public int ordOfCurrentLane;
     public Case woodToFollow;
+    public LauchGame lauchG;
 
     public Case getWoodToFollow() {
         return woodToFollow;
     }
 
-    public Environment(Game game)
+    public LauchGame getLauchG() {
+        return lauchG;
+    }
+
+    public Environment(Game game, LauchGame lG)
     {
         this.myGame = game;
         this.myRoads = new ArrayList();
         this.myWaterRoads = new ArrayList<>();
+        this.lauchG = lG;
 
         //Maintenant on doit créer height - 2 lane et les stocker dans this.myRoads
 
@@ -36,10 +43,20 @@ public class Environment implements IEnvironment {
         //Maintenant on peut itérer pour ajouter les "lanes" contenant des véhicules
         for(int i = 1; i < game.getHeight() - 2; i++)
         {
-            if(game.randomGen.nextBoolean() == true)
-                this.myRoads.add(new Lane(game,i));
+
+            if(this.lauchG.part4)
+            {
+                if(game.randomGen.nextBoolean() == true)
+                    this.myRoads.add(new Lane(game,i));
+                else
+                    this.myWaterRoads.add(new WaterRoads(game,i,0,true));
+            }
             else
-                this.myWaterRoads.add(new WaterRoads(game,i,0,true));
+            {
+                this.myRoads.add(new Lane(game,i));
+            }
+
+
         }
 
 
@@ -178,10 +195,16 @@ public class Environment implements IEnvironment {
             tmpLane.update();
         }
 
-        for(WaterRoads wR : this.myWaterRoads)
+
+        if(this.lauchG.part4)
         {
-            wR.update();
+            for(WaterRoads wR : this.myWaterRoads)
+            {
+                wR.update();
+            }
         }
+
+
 
     }
 }

@@ -1,6 +1,5 @@
 package gameCommons;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,81 +8,23 @@ import javax.swing.Timer;
 
 import environment.Environment;
 import frog.Frog;
-import givenEnvironment.GivenEnvironment;
 import graphicalElements.FroggerGraphic;
 import graphicalElements.IFroggerGraphics;
-import infFrogger.EnvInf;
-import infFrogger.FrogInf;
 import util.Case;
 import util.Direction;
-
-public class Main extends Frame {
-
-
+import java.lang.*;
+import gameCommons.LauchGame;
 
 
-
-	public static void main(String[] args) {
-
-		//Caractéristiques du jeu
-		int width = 50;
-		int height = 20;
-		int tempo = 100;
-		int minSpeedInTimerLoops = 3;
-		double defaultDensity = 0.2;
+public class Main {
 
 
+	public static void main(String[] args)  {
+
+		SelectGameMode sm = new SelectGameMode();
 
 
-		
-		//Création de l'interface graphique
-		IFroggerGraphics graphic = new FroggerGraphic(width, height);
-		//Création de la partie
-		Game game = new Game(graphic, width, height, minSpeedInTimerLoops, defaultDensity);
-		//Création et liaison de la grenouille
-		if(width % 2 == 0)
-		{
-			IFrog frog = new Frog(game, Direction.up, new Case(width/2,0));
-			//IFrog frog = new FrogInf(game,new Case(width/2,1));
-			game.setFrog(frog);
-			graphic.setFrog(frog);
-		}
-		else
-		{
-			IFrog frog = new Frog(game, Direction.up, new Case(Math.floorDiv(width,2),0));
-			//IFrog frog = new FrogInf(game,new Case(Math.floorDiv(width,2),1));
-			game.setFrog(frog);
-			graphic.setFrog(frog);
-		}
-
-
-		//Création et liaison de l'environnement
-		//IEnvironment env = new GivenEnvironment(game);
-
-		//Cr´eation et liaison de l’environnement
-		IEnvironment env = new Environment(game);
-		//IEnvironment env = new EnvInf(game);
-		game.setEnvironment(env);
-
-
-		//Boucle principale : l'environnement s'acturalise tous les tempo milisecondes
-		Timer timer = new Timer(tempo, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				game.update();
-				graphic.repaint();
-				/*if(game.testWin())
-				{
-					graphic.endGameScreen("BIEN JOUE");
-				}*/
-
-				/*if(game.testLose())
-				{
-					graphic.endGameScreen("PERDU");
-				}*/
-			}
-		});
-		timer.setInitialDelay(0);
-		timer.start();
 	}
+
+
 }

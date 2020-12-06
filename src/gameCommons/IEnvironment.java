@@ -24,7 +24,7 @@ public interface IEnvironment {
 
 	public String currentTypeRoad(Case c);
 
-
+	public LauchGame getLauchG();
 
 
 	/**

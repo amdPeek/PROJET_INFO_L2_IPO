@@ -41,7 +41,7 @@ public class LauchGame {
         //Création de l'interface graphique
         IFroggerGraphics graphic = new FroggerGraphic(width, height);
         //Création de la partie
-        Game game = new Game(graphic, width, height, minSpeedInTimerLoops, defaultDensity);
+        Game game = new Game(graphic, width, height, minSpeedInTimerLoops, defaultDensity,this);
         //Création et liaison de la grenouille
         if(width % 2 == 0)
         {

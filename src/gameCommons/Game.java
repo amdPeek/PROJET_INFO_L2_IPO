@@ -27,6 +27,8 @@ public class Game {
 
 	private boolean gameIsOver = false;
 
+	private LauchGame lg;
+
 
 	public IEnvironment getEnvironment() {
 		return this.environment;
@@ -45,13 +47,14 @@ public class Game {
 	 * @param defaultDensity
 	 *            densite de voiture utilisee par defaut pour les routes
 	 */
-	public Game(IFroggerGraphics graphic, int width, int height, int minSpeedInTimerLoop, double defaultDensity) {
+	public Game(IFroggerGraphics graphic, int width, int height, int minSpeedInTimerLoop, double defaultDensity, LauchGame lauch) {
 		super();
 		this.graphic = graphic;
 		this.width = width;
 		this.height = height;
 		this.minSpeedInTimerLoops = minSpeedInTimerLoop;
 		this.defaultDensity = defaultDensity;
+		this.lg = lauch;
 
 	}
 
@@ -146,16 +149,21 @@ public class Game {
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
 
-		for(winningAreas wA : this.getEnvironment().getWinningPos())
+		if(this.lg.part4)
 		{
-			if( (this.frog.getPosition().absc == wA.getAreaCase().absc) && (this.frog.getPosition().ord == wA.getAreaCase().ord) )
+			for(winningAreas wA : this.getEnvironment().getWinningPos())
 			{
-				//La grenouille est sur une case point bonus
-				this.getGraphic().setScore(this.getGraphic().getScore() + 15);
-				System.out.println("CASE BONUS ! + 15 points bravo !");
-				//this.getGraphic().animWarning();
+				if( (this.frog.getPosition().absc == wA.getAreaCase().absc) && (this.frog.getPosition().ord == wA.getAreaCase().ord) )
+				{
+					//La grenouille est sur une case point bonus
+					this.getGraphic().setScore(this.getGraphic().getScore() + 15);
+					System.out.println("CASE BONUS ! + 15 points bravo !");
+					//this.getGraphic().animWarning();
+				}
 			}
 		}
+
+
 
 		if(testLose())
 			if(environment.getClass() == EnvInf.class)

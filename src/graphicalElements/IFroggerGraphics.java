@@ -29,7 +29,9 @@ public interface IFroggerGraphics {
     public void repaint();
 
     public int getElapsedTime();
-    
+
+    public void setPart4(boolean part4);
+
     /**
      * Lie la grenouille à l'environneemnt graphique
      * @param frog

@@ -22,6 +22,7 @@ public class Environment implements IEnvironment {
     public int ordOfCurrentLane;
     public Case woodToFollow;
     public LauchGame lauchG;
+    public boolean part4;
 
 
     public Case getWoodToFollow() {

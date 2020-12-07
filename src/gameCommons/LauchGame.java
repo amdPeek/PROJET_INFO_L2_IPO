@@ -102,6 +102,7 @@ public class LauchGame {
             //Cr´eation et liaison de l’environnement
             IEnvironment env = new Environment(game,this);
             game.setEnvironment(env);
+            graphic.setPart4(true);
         }
 
 

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="IPO:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IPO_jar</output-path>
+    <root id="archive" name="IPO.jar">
+      <element id="module-output" name="IPO" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jl1.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/givenEnvironment.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

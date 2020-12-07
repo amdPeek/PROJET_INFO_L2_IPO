@@ -104,7 +104,7 @@ public class Game {
 	 */
 	public boolean testLose() {
 		// TODO
-		if(!environment.isSafe(this.frog.getPosition()) || (this.getFrog().getPosition().absc >= this.width) || (this.getFrog().getPosition().absc < 0) || (this.getGraphic().getElapsedTime() == 30))
+		if(!environment.isSafe(this.frog.getPosition()) || (this.getFrog().getPosition().absc >= this.width) || (this.getFrog().getPosition().absc < 0) || (this.getGraphic().getElapsedTime() == 30 && this.lg.part4))
 		{
 			return true;
 		}

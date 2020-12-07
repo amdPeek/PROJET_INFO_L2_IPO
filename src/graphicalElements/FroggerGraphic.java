@@ -7,6 +7,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 
+import gameCommons.Game;
 import gameCommons.IFrog;
 import gameCommons.LauchGame;
 import util.Direction;
@@ -62,9 +63,15 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 	public int elapsedTime = 0;
 	public int score = 0;
 	public boolean warningIsMade = false;
+	public Game myGame;
+	public boolean part4;
 
 	public int getScore() {
 		return score;
+	}
+
+	public void setPart4(boolean part4) {
+		this.part4 = part4;
 	}
 
 	public void setScore(int score) {
@@ -110,6 +117,7 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 	public FroggerGraphic(int width, int height) {
 		this.width = width;
 		this.height = height;
+		this.part4 = false;
 		elementsToDisplay = new ArrayList<Element>();
 
 		setBackground(Color.GRAY);
@@ -131,18 +139,31 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 
 		this.frame.add(panelTop,BorderLayout.PAGE_START);*/
 
-		JLabel label = new JLabel("FROGGER", JLabel.CENTER);
-		this.frame.add(label, BorderLayout.PAGE_END);
+
+
+			JLabel label = new JLabel("FROGGER", JLabel.CENTER);
+			this.frame.add(label, BorderLayout.PAGE_END);
+
+
+
 
 		Runnable helloRunnable = new Runnable() {
 			public void run() {
 
 				elapsedTime++;
 				score++;
-				label.setText("Il te reste " + Integer.toString(30 - elapsedTime) + " secondes !");
+				if(part4)
+				{
+					label.setText("Il te reste " + Integer.toString(30 - elapsedTime) + " secondes !");
+				}
+				else
+				{
+					label.setText("-");
+				}
+
 				if(30 - elapsedTime <= 10)
 				{
-					if(!warningIsMade)
+					if(!warningIsMade && part4)
 					{
 
 						animWarning();

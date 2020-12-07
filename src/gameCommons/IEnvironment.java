@@ -1,6 +1,9 @@
 package gameCommons;
 
+import environment.winningAreas;
 import util.Case;
+
+import java.util.ArrayList;
 
 public interface IEnvironment {
 
@@ -23,6 +26,8 @@ public interface IEnvironment {
 	public boolean isWinningPosition(Case c);
 
 	public String currentTypeRoad(Case c);
+
+	public ArrayList<winningAreas> getWinningPos();
 
 	public LauchGame getLauchG();
 

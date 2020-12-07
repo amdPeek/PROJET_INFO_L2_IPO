@@ -1,11 +1,16 @@
 package environment;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import gameCommons.LauchGame;
 import util.Case;
 import gameCommons.Game;
 import gameCommons.IEnvironment;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Environment implements IEnvironment {
 		
@@ -13,9 +18,11 @@ public class Environment implements IEnvironment {
     private Game myGame;
     private ArrayList<Lane> myRoads;
     private ArrayList<WaterRoads> myWaterRoads;
+    private ArrayList<winningAreas> winningPos;
     public int ordOfCurrentLane;
     public Case woodToFollow;
     public LauchGame lauchG;
+
 
     public Case getWoodToFollow() {
         return woodToFollow;
@@ -25,12 +32,17 @@ public class Environment implements IEnvironment {
         return lauchG;
     }
 
+
+
     public Environment(Game game, LauchGame lG)
     {
         this.myGame = game;
         this.myRoads = new ArrayList();
         this.myWaterRoads = new ArrayList<>();
+        this.winningPos = new ArrayList<>();
         this.lauchG = lG;
+
+
 
         //Maintenant on doit créer height - 2 lane et les stocker dans this.myRoads
 
@@ -64,6 +76,29 @@ public class Environment implements IEnvironment {
         this.myRoads.add(new Lane(game,game.height - 1,0));
 
 
+        if(this.lauchG.part4)
+        {
+            ArrayList<Integer> tmpAuthorizedOrd = new ArrayList();
+            ArrayList<Integer> usedOrd = new ArrayList();
+
+            for(Lane tmpRoad : this.myRoads)
+            {
+                tmpAuthorizedOrd.add(tmpRoad.getOrd());
+            }
+
+            for(int i = 0; i < 4; i++)
+            {
+                usedOrd.add(tmpAuthorizedOrd.get(ThreadLocalRandom.current().nextInt(0,  tmpAuthorizedOrd.size()+ 1)));
+            }
+
+            for(int tmpI : usedOrd)
+            {
+                this.winningPos.add(new winningAreas(this.myGame,tmpI));
+            }
+
+        }
+
+
     }
 
     @Override
@@ -94,9 +129,10 @@ public class Environment implements IEnvironment {
 
     }
 
-
-
-
+    @Override
+    public ArrayList<winningAreas> getWinningPos() {
+        return this.winningPos;
+    }
 
 
     @Override
@@ -204,7 +240,13 @@ public class Environment implements IEnvironment {
             }
         }
 
-
+        if(this.lauchG.part4)
+        {
+            for(winningAreas wP : this.winningPos)
+            {
+                wP.update();
+            }
+        }
 
     }
 }

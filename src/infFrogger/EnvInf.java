@@ -1,6 +1,7 @@
 package infFrogger;
 
 import environment.Lane;
+import environment.winningAreas;
 import gameCommons.Game;
 import gameCommons.IEnvironment;
 import gameCommons.LauchGame;
@@ -35,6 +36,11 @@ public class EnvInf implements IEnvironment {
 
     public LauchGame getLauchG() {
         return lauchG;
+    }
+
+    public ArrayList<winningAreas> getWinningPos()
+    {
+        return null;
     }
 
     @Override

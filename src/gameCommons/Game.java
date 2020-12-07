@@ -3,6 +3,7 @@ package gameCommons;
 import java.awt.Color;
 import java.util.Random;
 
+import environment.winningAreas;
 import frog.Frog;
 import graphicalElements.Element;
 import graphicalElements.IFroggerGraphics;
@@ -23,6 +24,9 @@ public class Game {
 	private IEnvironment environment;
 	private IFrog frog;
 	private IFroggerGraphics graphic;
+
+	private boolean gameIsOver = false;
+
 
 	public IEnvironment getEnvironment() {
 		return this.environment;
@@ -48,6 +52,7 @@ public class Game {
 		this.height = height;
 		this.minSpeedInTimerLoops = minSpeedInTimerLoop;
 		this.defaultDensity = defaultDensity;
+
 	}
 
 	public IFrog getFrog() {
@@ -96,7 +101,7 @@ public class Game {
 	 */
 	public boolean testLose() {
 		// TODO
-		if(!environment.isSafe(this.frog.getPosition()) || (this.getFrog().getPosition().absc >= this.width) || (this.getFrog().getPosition().absc < 0))
+		if(!environment.isSafe(this.frog.getPosition()) || (this.getFrog().getPosition().absc >= this.width) || (this.getFrog().getPosition().absc < 0) || (this.getGraphic().getElapsedTime() == 30))
 		{
 			return true;
 		}
@@ -141,12 +146,29 @@ public class Game {
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
 
+		for(winningAreas wA : this.getEnvironment().getWinningPos())
+		{
+			if( (this.frog.getPosition().absc == wA.getAreaCase().absc) && (this.frog.getPosition().ord == wA.getAreaCase().ord) )
+			{
+				//La grenouille est sur une case point bonus
+				this.getGraphic().setScore(this.getGraphic().getScore() + 15);
+				System.out.println("CASE BONUS ! + 15 points bravo !");
+				//this.getGraphic().animWarning();
+			}
+		}
+
 		if(testLose())
 			if(environment.getClass() == EnvInf.class)
 				graphic.endGameScreen("PERDU \n Ton score: " + frog.getScore());
 			else
-				graphic.endGameScreen("PERDU !");
-			if(testWin()) graphic.endGameScreen("GAGNE");
+			{
+				graphic.endGameScreen("PERDU ! Ton score : " + getGraphic().getScore());
+			}
+
+
+			if(testWin())
+				graphic.endGameScreen("GAGNE");
+
 
 
 	}

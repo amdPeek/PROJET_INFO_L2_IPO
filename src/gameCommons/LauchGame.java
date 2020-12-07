@@ -109,7 +109,6 @@ public class LauchGame {
 
 
 
-
         //Boucle principale : l'environnement s'acturalise tous les tempo milisecondes
         Timer timer = new Timer(tempo, new ActionListener() {
             @Override
@@ -125,6 +124,7 @@ public class LauchGame {
 				{
 					graphic.endGameScreen("PERDU");
 				}*/
+
             }
         });
         timer.setInitialDelay(0);

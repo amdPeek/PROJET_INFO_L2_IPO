@@ -80,6 +80,7 @@ public class Lane {
 				this.moveCarsLane(true);
 				this.mayAddCar();
 				this.tempo = 0;
+
 			}
 
 	}

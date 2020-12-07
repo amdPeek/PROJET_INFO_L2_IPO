@@ -2,6 +2,8 @@ package graphicalElements;
 
 import gameCommons.IFrog;
 
+import javax.swing.*;
+
 public interface IFroggerGraphics {
 	
 	/**
@@ -14,11 +16,19 @@ public interface IFroggerGraphics {
      * Enlève tous les éléments actuellement affichés
      */
     public void clear();
-    
+
+
+    public int getScore();
+    public void setScore(int score);
+
+    public void animWarning();
+
     /***
      * Actualise l'affichage
      */
     public void repaint();
+
+    public int getElapsedTime();
     
     /**
      * Lie la grenouille à l'environneemnt graphique
